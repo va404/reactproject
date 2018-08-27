@@ -1,41 +1,22 @@
 import React, { Component } from 'react'
 import '../../assets/bootstrap.min.css'
-import { NavLink, Redirect } from 'react-router-dom'
-import observer from '../../infrastructure/observer'
-import requester from '../../infrastructure/requester'
+import { NavLink } from 'react-router-dom'
 
 
 export default class CustomNav extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            username: null,
-            auth: this.isAuth
-        }
-     
+            auth: sessionStorage.authtoken
+        } 
     }
 
-    isAuth = () => {
-        if (sessionStorage.getItem('authtoken')) {
-          this.setState({auth: true})
-           
-        } else {
-            this.setState({auth: false})
-             
-        }
-
-    }
-    
     logout = () => {
-       
-            sessionStorage.removeItem('authtoken')
-            this.setState({auth: null})
-            console.log(this.state)
-
+        this.setState({auth:false})
+        sessionStorage.clear()
     }
 
-    
- 
+
     render() {
         const menuForGuests = <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
             <div className="collapse navbar-collapse" id="navbarColor01">
@@ -68,9 +49,9 @@ export default class CustomNav extends Component {
              </ul>
          </div>
      </nav>
+      
         return (
-
-               this.state.auth  ?  menuForAuthenticated :  menuForGuests
+            sessionStorage.authtoken  ?  menuForAuthenticated :  menuForGuests
         )
     }
 }

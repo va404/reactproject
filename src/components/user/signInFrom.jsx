@@ -35,7 +35,7 @@ export default class SignInForm extends Component {
         return (
           
                 <form onSubmit={this.handleSubmit}>
-                    <div className="form-group  col-md-4">
+                    <div className="form-group  col-md-4 offset-4">
                         <label htmlFor="username">Username</label>
                         <input type="text" name="username" className="form-control " id="username" placeholder="Username" onChange={this.handleInputChange} />
                         <label htmlFor="exampleInputPassword1">Password</label>
