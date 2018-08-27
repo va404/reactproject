@@ -23,7 +23,7 @@ export default class SignInForm extends Component {
         event.preventDefault()
         requester.post('user', 'login', 'basic', this.state)
             .then(res => {
-                console.log(res)
+                console.log(this.state)
                 sessionStorage.setItem('authtoken', res._kmd.authtoken)
                 
                 this.props.history.push('/news')

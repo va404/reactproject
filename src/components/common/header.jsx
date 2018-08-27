@@ -14,35 +14,28 @@ export default class CustomNav extends Component {
         }
      
     }
-    userLoggedIn = username => {
-        this.setState({ username })
-    }
-
 
     isAuth = () => {
         if (sessionStorage.getItem('authtoken')) {
-            
-            return true
-        }
-        return false
-        observer.trigger(observer.events.loginUser, this.isAuth)
-       
-        
-    }
-    logout = () => {
-        requester.post('user', '_logout', 'kinvey')
-        .then(res => {
-            sessionStorage.removeItem('authtoken')
+          this.setState({auth: true})
            
-        });
-        
-        return <Redirect to="/news"/>
+        } else {
+            this.setState({auth: false})
+             
+        }
+
+    }
+    
+    logout = () => {
+       
+            sessionStorage.removeItem('authtoken')
+            this.setState({auth: null})
+            console.log(this.state)
+
     }
 
-   componentDidUpdate() {
-        this.setState(this.auth = this.isAuth)
-   }
-
+    
+ 
     render() {
         const menuForGuests = <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
             <div className="collapse navbar-collapse" id="navbarColor01">
@@ -77,7 +70,7 @@ export default class CustomNav extends Component {
      </nav>
         return (
 
-               this.isAuth  ?  menuForAuthenticated :  menuForGuests
+               this.state.auth  ?  menuForAuthenticated :  menuForGuests
         )
     }
 }
