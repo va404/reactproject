@@ -24,9 +24,9 @@ export default class Article extends Component {
 
 
         return (
-            <div className="card text-white bg-primary   col-sm-6  offset-3 mt-2 mb-2">
+            <div className="card text-white bg-primary  col-sm-12  mt-2 mb-2">
                 <div className="card-header">
-                    {this.props.heading}
+                    <h2> {this.props.heading}</h2>
                 </div>
                     <div className="card-body">
                         <p className="card-text">{this.props.body}</p>

@@ -32,7 +32,7 @@ export default class ArticleDetails extends Component {
         const adminView = <div>
         <div className="list">
             <div className="card text-white bg-primary   col-sm-6  offset-3">
-                <div className="card-header">{this.state.article.heading}</div>
+                <div className="card-header"><h2>{this.state.article.heading}</h2></div>
                 <div className="card-body">
                     <p className="card-text">{this.state.article.body}</p>
                 </div>
@@ -49,7 +49,7 @@ export default class ArticleDetails extends Component {
     </div>
     const userView = <div className="list">
         <div className="card text-white bg-primary   col-sm-6  offset-3">
-            <div className="card-header">{this.state.article.heading}</div>
+            <div className="card-header"><h2>{this.state.article.heading}</h2></div>
             <div className="card-body">
                 <p className="card-text">{this.state.article.body}</p>
                 
