@@ -37,7 +37,7 @@ export default class ArticleDetails extends Component {
                     <p className="card-text">{this.state.article.body}</p>
                 </div>
                 <br />
-                {/* <Link to={`/article/${this.props._id}`} className="btn btn-info">Details</Link> */}
+                
                 <Link to={`/edit/${this.id}`} className="btn btn-info  col-sm-4 offset-4  mt-1">Edit</Link>
                 <button className="btn btn-info col-sm-4 offset-4  mt-1" onClick={this.deleteArticle}>Delete</button>
                 <br />

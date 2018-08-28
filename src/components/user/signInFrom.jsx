@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import requester from '../../infrastructure/requester'
-import observer from '../../infrastructure/observer'
+
 
 export default class SignInForm extends Component {
     constructor(props) {

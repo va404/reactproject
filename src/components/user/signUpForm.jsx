@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import observer from '../../infrastructure/observer'
+
 import requester from '../../infrastructure/requester'
 
 export default class SignUpForm extends Component {

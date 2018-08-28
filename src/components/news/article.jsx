@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+
 import requester from '../../infrastructure/requester'
 
 export default class Article extends Component {
@@ -12,16 +12,9 @@ export default class Article extends Component {
     }
     deleteArticle = (event) => {
         requester.remove('appdata', 'articles/', this.props._id, 'kinvey')
-
-
     }
 
-
-
-
     render() {
-
-
 
         return (
             <div className="card text-white bg-primary  col-sm-12  mt-2 mb-2">
@@ -32,8 +25,6 @@ export default class Article extends Component {
                         <p className="card-text">{this.props.body}</p>
                     </div>
                     <br />
-                       
-               
                 <hr className="col-md-6"/>
             </div>
         )
