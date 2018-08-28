@@ -22,7 +22,7 @@ export default class ListNews extends Component {
             <div>
                 
                 <section id="viewCatalog">
-                    {this.state.articles.map((p) => <Article key={p._id} {...p} />)}
+                    {this.state.articles.map((a) => <Article key={a._id} {...a} />)}
                 </section>
             </div>
         )

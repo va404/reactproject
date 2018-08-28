@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import '../../assets/bootstrap.min.css'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Redirect } from 'react-router-dom'
 
 
 export default class CustomNav extends Component {
@@ -11,9 +11,10 @@ export default class CustomNav extends Component {
         } 
     }
 
-    logout = () => {
+    logout = (props) => {
         this.setState({auth:false})
         sessionStorage.clear()
+        
     }
 
 

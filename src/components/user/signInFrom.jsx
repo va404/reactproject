@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import requester from '../../infrastructure/requester'
+import observer from '../../infrastructure/observer'
 
 export default class SignInForm extends Component {
     constructor(props) {
@@ -7,10 +8,13 @@ export default class SignInForm extends Component {
 
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            userRole : ''
         }
     }
 
+   
+    
     handleInputChange = event => {
         let fieldName = event.target.name
         let fieldValue = event.target.value
@@ -23,12 +27,14 @@ export default class SignInForm extends Component {
         event.preventDefault()
         requester.post('user', 'login', 'basic', this.state)
             .then(res => {
-                console.log(this.state)
+                console.log(res)
                 sessionStorage.setItem('authtoken', res._kmd.authtoken)
-                
+                sessionStorage.setItem('userRole', res.role)
+                this.setState({userRole: res.role})
+                console.log(this.state.userRole)
                 this.props.history.push('/news')
             });
-
+           
     }
 
     render() {
