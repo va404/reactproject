@@ -12,9 +12,10 @@ export default class CustomNav extends Component {
     }
 
     logout = (props) => {
+        
         this.setState({auth:false})
         sessionStorage.clear()
-        Redirect
+        
         
     }
 
@@ -24,13 +25,13 @@ export default class CustomNav extends Component {
             <div className="collapse navbar-collapse" id="navbarColor01">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item" >
-                        <NavLink className="nav-link" to="news">Welcome</NavLink>
+                        <NavLink className="nav-link" to="/news">Welcome</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link" to="signin">Sign In</NavLink>
+                        <NavLink className="nav-link" to="/signin">Sign In</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link" to="signup">Sign Up</NavLink>
+                        <NavLink className="nav-link" to="/signup">Sign Up</NavLink>
                     </li>
                 </ul>
             </div>
@@ -40,13 +41,13 @@ export default class CustomNav extends Component {
          <div className="collapse navbar-collapse" id="navbarColor01">
              <ul className="navbar-nav mr-auto">
                  <li className="nav-item" >
-                     <NavLink className="nav-link" to="news">News</NavLink>
+                     <NavLink className="nav-link" to="/news">News</NavLink>
                  </li>
                  <li className="nav-item">
-                     <NavLink className="nav-link" to="create">Create Article</NavLink>
+                     <NavLink className="nav-link" to="/create">Create Article</NavLink>
                  </li>
                  <li className="nav-item">
-                     <a className="nav-link" onClick={this.logout}>Logout</a>
+                     <NavLink className="nav-link" to={'/signin'} onClick={this.logout}>Logout</NavLink>
                  </li>
              </ul>
          </div>

@@ -7,6 +7,7 @@ import ListNews from './components/news/listNews';
 import SignUpForm from './components/user/signUpForm';
 import CreateArticle from './components/news/create';
 import ArticleDetails from './components/news/articleDetails';
+import EditArticle from './components/news/edit';
 
 class App extends Component {
   render() {
@@ -14,14 +15,15 @@ class App extends Component {
       <div className="App">
         <CustomNav />
        
-        <Router history={history}>
+    
           <Route exact path="/news"  component={ListNews} />
           <Route exact path="/signin"  component={SignInForm} />
-          <Route path="/signup"  component={SignUpForm} />
+          <Route exact path="/signup"  component={SignUpForm} />
           <Route exact path="/create"  component={CreateArticle} />
           <Route exact path="/article/:id"  component={ArticleDetails} />
+          <Route exact path="/edit/:id"  component={EditArticle} />
 
-        </Router>
+    
           
         
        

@@ -21,9 +21,8 @@ export default class ListNews extends Component {
     render() {
         return (
             <div>
-                
-                <section id="viewCatalog">
-                    {this.state.articles.map((a) => <Link to={`article/${a._id}`}><Article key={a._id} {...a} /></Link>)}
+                <section  className="col-md-10 offset-1">
+                    {this.state.articles.map((a) => <Link  className="col-md-10 offset-1" to={`article/${a._id}`}><Article key={a._id} {...a} /></Link>)}
                 </section>
             </div>
         )

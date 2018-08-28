@@ -12,7 +12,8 @@ export default class ArticleDetails extends Component {
         }
     }
     deleteArticle = () => {
-        requester.remove('appdata', `articles/${this.id}`, 'kinvey').then(res => console.log(res))
+        requester.remove('appdata', `articles/${this.id}`, 'kinvey')
+            .then(res =>  this.props.history.push('/news'))
             .catch(err => console.log(err))
     }
 
@@ -37,7 +38,7 @@ export default class ArticleDetails extends Component {
                 </div>
                 <br />
                 {/* <Link to={`/article/${this.props._id}`} className="btn btn-info">Details</Link> */}
-                <button className="btn btn-info  col-sm-4 offset-4  mt-1">Edit</button>
+                <Link to={`/edit/${this.id}`} className="btn btn-info  col-sm-4 offset-4  mt-1">Edit</Link>
                 <button className="btn btn-info col-sm-4 offset-4  mt-1" onClick={this.deleteArticle}>Delete</button>
                 <br />
             </div>
