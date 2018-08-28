@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch} from 'react-router-dom'
+import { Route, Router} from 'react-router-dom'
 import './assets/bootstrap.min.css';
 import SignInForm from './components/user/signInFrom';
 import CustomNav from './components/common/header';
@@ -14,14 +14,14 @@ class App extends Component {
       <div className="App">
         <CustomNav />
        
-        <Switch>
-          <Route path="/news" exact component={ListNews} />
-          <Route path="/signin" exact component={SignInForm} />
-          <Route path="/signup" exact component={SignUpForm} />
-          <Route path="/create" exact component={CreateArticle} />
-          <Route path="/article/:id" exact component={ArticleDetails} />
+        <Router history={history}>
+          <Route exact path="/news"  component={ListNews} />
+          <Route exact path="/signin"  component={SignInForm} />
+          <Route path="/signup"  component={SignUpForm} />
+          <Route exact path="/create"  component={CreateArticle} />
+          <Route exact path="/article/:id"  component={ArticleDetails} />
 
-        </Switch>
+        </Router>
           
         
        

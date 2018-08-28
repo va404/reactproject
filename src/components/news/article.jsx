@@ -11,49 +11,30 @@ export default class Article extends Component {
 
     }
     deleteArticle = (event) => {
-       requester.remove('appdata', 'articles/', this.props._id, 'kinvey')
+        requester.remove('appdata', 'articles/', this.props._id, 'kinvey')
 
-       
+
     }
-    
+
 
 
 
     render() {
-        const adminView = <div>
-            <div className="list">
-                <div className="card text-white bg-primary   col-sm-6  offset-3">
-                    <div className="card-header">{this.props.heading}</div>
+
+
+
+        return (
+            <div className="card text-white bg-primary   col-sm-6  offset-3 mt-2 mb-2">
+                <div className="card-header">
+                    {this.props.heading}
+                </div>
                     <div className="card-body">
                         <p className="card-text">{this.props.body}</p>
                     </div>
                     <br />
-                    {/* <Link to={`/article/${this.props._id}`} className="btn btn-info">Details</Link> */}
-                    <button className="btn btn-info  col-sm-4 offset-4  mt-1">Edit</button>
-                    <button className="btn btn-info col-sm-4 offset-4  mt-1" onClick={this.deleteArticle}>Delete</button>
-                    <br />
-                </div>
-
-                <hr className="col-md-6" />
-            </div>
-           
-        </div>
-        const userView = <div className="list">
-            <div className="card text-white bg-primary   col-sm-6  offset-3">
-                <div className="card-header">{this.props.heading}</div>
-                <div className="card-body">
-                    <p className="card-text">{this.props.body}</p>
-                </div>
-                <br />
-                <Link to={'/news'} className="btn btn-info">Details</Link>
-                <br />
-            </div>
-            <hr className="col-md-6" />
-
-        </div>
-        return (
-            <div>
-                {sessionStorage.getItem('userRole') === 'admin' ? adminView : userView}
+                       
+               
+                <hr className="col-md-6"/>
             </div>
         )
     }

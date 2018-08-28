@@ -14,6 +14,7 @@ export default class CustomNav extends Component {
     logout = (props) => {
         this.setState({auth:false})
         sessionStorage.clear()
+        Redirect
         
     }
 
