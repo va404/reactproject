@@ -6,11 +6,19 @@ export default class Article extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            article: []
+            article: undefined
         }
 
     }
-   
+    deleteArticle = (event) => {
+       requester.remove('appdata', 'articles/', this.props._id, 'kinvey')
+
+       
+    }
+    
+
+
+
     render() {
         const adminView = <div>
             <div className="list">
@@ -20,7 +28,7 @@ export default class Article extends Component {
                         <p className="card-text">{this.props.body}</p>
                     </div>
                     <br />
-                    <Link to={'/news'} className="btn btn-info  col-sm-4 offset-4 mt-1">Details</Link>
+                    {/* <Link to={`/article/${this.props._id}`} className="btn btn-info">Details</Link> */}
                     <button className="btn btn-info  col-sm-4 offset-4  mt-1">Edit</button>
                     <button className="btn btn-info col-sm-4 offset-4  mt-1" onClick={this.deleteArticle}>Delete</button>
                     <br />
